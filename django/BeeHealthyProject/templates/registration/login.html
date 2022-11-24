@@ -1,0 +1,13 @@
+ines (9 sloc)  224 Bytes
+
+
+
+{% extends 'base.html'%}
+{% block content%}
+    <form action="" method="post">
+        <h1>Login</h1>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value='Login'>
+    </form>
+{% endblock %}

@@ -3,5 +3,5 @@ from . import views
 
 app_name = 'BeeHealthyApp'
 urlpatterns = [
-    path('', views.myview, name='home')
+    path('', views.myview, name='home'),
 ]

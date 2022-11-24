@@ -1,17 +1,20 @@
 
 
 const app = Vue.createApp({
-    delimiters: ['[[', ']]'],
+    delimiters: ["[[", "]]"],
     data(){
         return{
-        message: 'hello world'
+        message: 'Is this working?'
         }
     },
     methods: {
-        loadBooks(){
-    }},
+
+
+
+    },
     mounted(){
-       this.csrfToken = document.querySelector("input[name=csrfmiddlewaretoken]").value
+        // console.log('hello')
+       
       
        
     }

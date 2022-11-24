@@ -1,0 +1,73 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">  
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    
+    
+    <title>Bee Healthy</title>
+    
+  </head>
+  
+  
+  <body>
+
+    {% comment %} <h1>{{ message }}</h1> {% endcomment %}
+    <div id="app">
+      
+      <div>
+        {% comment %} <h1>[[ message ]]</h1> {% endcomment %}
+
+      </div>
+      
+      <div >
+        {% if user.is_authenticated %}
+
+          <div>
+            <h1>Profile</h1>
+            {% comment %} <a id='profile-back' href="{% url 'BeeHealthyApp:home' %}">Back</a> {% endcomment %}
+            <p>{{user_profile.username}}</p>
+            <p>{{user_profile.first_name}}</p>
+            <p>{{user_profile.last_name}}</p>
+            <p>{{user_profile.email}}</p>
+        </div>
+        <a href="{% url 'logout' %}">Logout</a>
+        {% comment %} <a href="{% url 'profile' %}">Profile</a> {% endcomment %}
+            
+          {% else%}
+          <div id='log_info'>
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'users:signup' %}">Register</a>
+          
+          </div>
+          {% endif %}
+        </div>
+
+      
+      
+      
+      
+      
+      
+      
+    </div>
+
+    
+    {% block content %}
+    {% endblock %}
+
+    
+    <script src="{% static 'javascript/main.js' %}"></script>
+    <script>
+      const mountedApp = app.mount('#app')
+    </script>
+    
+  </body>
+
+</html>
+    

@@ -1,12 +1,26 @@
 
 
 *{
-    margin: 0;
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
+    background-color: black;
+    color: white;
     /* border: 1px solid red; */
 }
 
+
 #message{
-    border: 1px solid red;
+    padding-top: 5rem;
+    text-align: center;
+    border: 1px solid blue;
+    /* color: blue; */
+
+}
+
+#log_info{
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    padding-left: 2rem;
 }
