@@ -19,6 +19,18 @@
 
     {% comment %} <h1>{{ message }}</h1> {% endcomment %}
     <div id="app">
+
+      
+    <div>
+    
+      {% for item in object_list %}
+
+      <div class="healthy">
+          <h3>{{ item.title }}</h3>
+      </div>
+      {% endfor %}
+
+  </div>
       
       <div>
         {% comment %} <h1>[[ message ]]</h1> {% endcomment %}

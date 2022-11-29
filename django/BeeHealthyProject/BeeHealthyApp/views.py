@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 from django.http import HttpResponse
-
+from .models import Healthy
 
 def myview(request):
     context = {
@@ -9,19 +10,8 @@ def myview(request):
     return render(request, 'base.html', context)
     
     
-    # def HomeRegister(request):
-
-    # # example of password requirements
-    # if len(request.POST['password']) < 8:
-    #     return redirect('posts:home')
-
-    # if request.POST['password2'] == request.POST['password']:
-    #     # print('password', request.POST['password'])
-    #     # print('hashed password', make_password(request.POST['password']))
-
-    #     user_model = CustomUser(username=request.POST['name'], password=make_password(request.POST['password']))
-    #     user_model.save()
-    # else:
-    #     print("not match")
-
-    # return redirect('posts:home')
+def home(request):
+    all_healthy = Healthy.objects.all()
+    context = {
+        'health': all_healthy
+    }
