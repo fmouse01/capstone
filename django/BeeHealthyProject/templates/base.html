@@ -17,20 +17,9 @@
   
   <body>
 
-    {% comment %} <h1>{{ message }}</h1> {% endcomment %}
+  
     <div id="app">
 
-      
-    <div>
-    
-      {% for item in object_list %}
-
-      <div class="healthy">
-          <h3>{{ item.title }}</h3>
-      </div>
-      {% endfor %}
-
-  </div>
       
       <div>
         {% comment %} <h1>[[ message ]]</h1> {% endcomment %}
@@ -48,6 +37,7 @@
             <p>{{user_profile.last_name}}</p>
             <p>{{user_profile.email}}</p>
         </div>
+        <a href="{% url 'BeeHealthyApp:create' %}">new post</a>
         <a href="{% url 'logout' %}">Logout</a>
         {% comment %} <a href="{% url 'profile' %}">Profile</a> {% endcomment %}
             

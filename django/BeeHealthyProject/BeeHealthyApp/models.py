@@ -4,8 +4,9 @@ from users.models import CustomUser
 
 
 class Healthy(models.Model):
-    author = models.ForeignKey(CustomUser, null=True, on_delete=models.CASCADE)
+    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
+    body = models.CharField(max_length=250, null=True)
     date = models.DateTimeField(auto_now_add=True, null=True)
     
     
