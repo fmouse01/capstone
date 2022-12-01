@@ -24,3 +24,8 @@
     padding-top: 2rem;
     padding-left: 2rem;
 }
+
+#space{
+    margin-bottom: 5rem; 
+    border: 2px solid red;
+}

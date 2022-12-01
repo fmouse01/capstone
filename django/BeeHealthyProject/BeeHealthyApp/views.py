@@ -5,6 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView
 from .models import Healthy
+from users.models import CustomUser
 
 # def myview(request):
 #     context = {
@@ -27,3 +28,7 @@ class CreatePost(LoginRequiredMixin, CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
+class Profile(ListView):
+    model = CustomUser
+    template_name = 'profile.html'
+    context_object_name = 'user_profile'
