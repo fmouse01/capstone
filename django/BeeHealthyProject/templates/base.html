@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">  
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    {% comment %} <script src="https://unpkg.com/axios/dist/axios.min.js"></script> {% endcomment %}
     
     
     <title>Bee Healthy</title>
@@ -42,6 +43,10 @@
               <div>Remaining calories   [[ totalCalories ]]</div>
 
             </div>
+            {% comment %} <div>
+              <input @keyup.enter="getCalories()" v-model="foodItem" placeholder="food item">
+              <button @click="getCalories()" >submit</button>
+            </div> {% endcomment %}
             
           {% else%}
             <div id='log_info'>

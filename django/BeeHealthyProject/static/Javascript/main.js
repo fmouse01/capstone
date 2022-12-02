@@ -8,34 +8,34 @@ const app = Vue.createApp({
         userCalories: 0,
         dailyCalories: 1650,
         totalCalories: 0,
+        calorieArray: [],
+        foodItem: '',
    
         
 
         }
     },
     methods:{
-        // getNewQuestion(){
-        //     // this.hideContent()
+        // getCalories(){
         //     axios({
         //         method: 'get',
-        //         url:  `https://opentdb.com/api.php`,
+        //         url:  `https://api.myfitnesspal.com/v2/diary`,
         //         params: {
-        //             amount: this.userAmount,
-        //             type: this.userType,
-        //             difficulty: this.userDifficulty,
-        //             category: this.userCategory,
+        //             get: this.userAmount,
+        //             post: this.userType,
+        //             delete: this.userDifficulty,
+        //             patch: this.userCategory,
                     
-        //         }
+        //         },
         //     }).then((response)=> {
-        //         this.questionArray = response.data.results
+        //         this.calorieArray = response.data.results
                 
         //         this.checkAnswers()
                 
-        //         // console.log(this.currentQuestion.incorrect_answers[0])
-        //         // this.revealContent()
-        //         this.inGame = true
-        //     }),
-
+        //         console.log(calorieArray)
+        //         console.log(foodItem)
+        //     })
+        // },
         calorieCalculator(){
             
             this.totalCalories = this.dailyCalories - this.userCalories
@@ -48,9 +48,9 @@ const app = Vue.createApp({
     },
     mounted(){
         console.log('hello')
-        console.log(this.calorieCalculator())
+    
        
       
        
-    }
+    },
 })
