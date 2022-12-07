@@ -33,20 +33,49 @@
 
             {% comment %} <a href="{% url 'BeeHealthyApp:create' %}">new post</a> {% endcomment %}
             <a href="{% url 'logout' %}">Logout</a><br />
-            <a href="{% url 'BeeHealthyApp:profile' %}">Profile</a>
+            <a href="{% url 'BeeHealthyApp:profile' %}" >Profile</a>
             <br /><br />
             <div>
               <input @keyup.enter="calorieCalculator()" v-model="userCalories" placeholder="calories eaten">
               <button @click="calorieCalculator()" >submit</button>  
+              
+              
+              </br></br>
+
+              <p>user: {{ user }}</p>
+              <p>user: {{ user.dailyCalories }}</p>
+              <p>user: {{ user.email }}</p>
+
+              <a href="{% url 'users:updateProfile' user.pk %}">Update</a>
+              
+              {{ object_list.Calories }}
+
+              {% for item in object_list %}
+              {{ item.Calories }}
+              {% endfor %}
+ 
+              {% comment %} <h1>Edit Calories</h1>
+              <form action="" method="post">
+                  {% csrf_token %}
+                  {{ form.as_p }}
+                  <input type="submit" value="Update">
+              </form> {% endcomment %}
+
+
+
               <br />
                 
-              <div>Remaining calories   [[ totalCalories ]]</div>
-
+              <div>Remaining calories   [[ dailyCalories ]]</div>
+              <div></div>
+              {% comment %} <div>
+              </div> {% endcomment %}
             </div>
+
+
             {% comment %} <div>
-              <input @keyup.enter="getCalories()" v-model="foodItem" placeholder="food item">
               <button @click="getCalories()" >submit</button>
             </div> {% endcomment %}
+
             
           {% else%}
             <div id='log_info'>

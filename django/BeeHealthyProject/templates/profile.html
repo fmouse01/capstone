@@ -11,6 +11,33 @@
             <p>{{user.first_name}}</p>
             <p>{{user.last_name}}</p>
             <p>{{user.email}}</p>
+    </br>
+
+    <form action="{% url 'BeeHealthyApp:calories' %}" method="POST">
+        <!-- include CSRF token for security -->
+        {% csrf_token %}
+
+        <input type='text' placeholder='calories' name='calories'>
+
+
+        {% comment %} 
+        <input type='text' placeholder='title' name='height'>
+        <input type='text' placeholder='created' name='weight'>
+        <input type='text' placeholder='body' name='age' >
+        {% endcomment %}
+    
+        <button type="submit">Submit</button>
+    </form>
+
+    
+            <div>
+                <input  v-model="userWeight" placeholder="Weight">
+                <input  v-model="userHeight" placeholder="Height">
+                <input  v-model="userAge" placeholder="Age">
+                <button>Update</button>
+            </div>
+        </br>
+
     
         {% endif %}
         <a id='profile-back' href="{% url 'BeeHealthyApp:home' %}">Back</a>

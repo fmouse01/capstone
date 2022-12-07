@@ -6,10 +6,15 @@ const app = Vue.createApp({
         return{
         message: 'Is this working?',
         userCalories: 0,
-        dailyCalories: 1650,
+        dailyCalories: 0,
         totalCalories: 0,
-        calorieArray: [],
-        foodItem: '',
+        BMR: 0,
+
+        userWeight: 244,
+        userHeight: 70,
+        userAge: 33,
+        
+        // gender: True
    
         
 
@@ -42,13 +47,25 @@ const app = Vue.createApp({
             this.dailyCalories = this.totalCalories
             
         },
+        getBMR(){
+            // if (gender == True)
+                
+                const BMR = 66.47 + (6.24 * this.userWeight) + (12.7 * this.userHeight) - (6.75 * this.userAge)
+            
+                this.dailyCalories = Math.round(BMR) 
+                
+                console.log(BMR)
+                console.log(this.dailyCalories)
+                // BMR = 65.51 + (4.35 * this.userWeight) + (4.7 * this.userHeight) - (4.7 * this.userAge)
+        },
+        
         
         
         
     },
     mounted(){
         console.log('hello')
-    
+        this.getBMR()
        
       
        

@@ -2,6 +2,8 @@
 
 from django.contrib.auth.forms import UserCreationForm
 # from django.contrib.auth.models import User
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from users.models import CustomUser
 from django.shortcuts import render
 from django.urls import reverse_lazy
@@ -25,3 +27,10 @@ class ProfileView(LoginRequiredMixin, DetailView):
 
     def get_object(self):
         return get_object_or_404(CustomUser, username=self.kwargs['username'])
+
+class UpdateCalories(UpdateView):
+    model = CustomUser
+    # form_class = CustomUserChangeForm
+    fields = ['dailyCalories']
+    success_url = reverse_lazy('login')
+    template_name = 'edit_user.html'

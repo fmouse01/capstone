@@ -17,6 +17,7 @@ from users.models import CustomUser
 class Home(ListView):
     model = Healthy
     template_name = 'home.html'
+    
 
 
 class CreatePost(LoginRequiredMixin, CreateView):
@@ -32,3 +33,22 @@ class Profile(ListView):
     model = CustomUser
     template_name = 'profile.html'
     context_object_name = 'user_profile'
+
+class Calories(ListView):
+    model = Healthy
+    template_name = 'form.html'
+    fields = ['calories']
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+class UpdateCalories(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Healthy
+    template_name = 'home.html'
+    fields = ['Calories']
+
+    def test_func(self):
+        post = self.get_object()
+        return self.request.user == post.author
+
